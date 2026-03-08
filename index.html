@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>クリックゲーム</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin-top: 100px;
+}
+
+.box{
+    background: white;
+    width: 300px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+button{
+    padding: 10px 20px;
+    font-size: 16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+<h1>クリックゲーム</h1>
+
+<p>スコア: <span id="score">0</span></p>
+
+<button onclick="addScore()">クリック</button>
+
+</div>
+
+<script>
+let score = 0;
+
+function addScore(){
+    score = score + 1;
+    document.getElementById("score").textContent = score;
+}
+</script>
+
+</body>
+</html>
