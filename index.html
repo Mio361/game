@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>クリックゲーム</title>
+<title>数字あてゲーム</title>
 
 <style>
 body{
@@ -14,16 +14,22 @@ body{
 
 .box{
     background: white;
-    width: 300px;
+    width: 350px;
     margin: auto;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
-button{
-    padding: 10px 20px;
+input{
+    padding: 5px;
     font-size: 16px;
+}
+
+button{
+    padding: 6px 15px;
+    font-size: 16px;
+    margin-left: 5px;
 }
 </style>
 
@@ -32,21 +38,35 @@ button{
 <body>
 
 <div class="box">
-<h1>クリックゲーム</h1>
+<h1>数字あてゲーム</h1>
 
-<p>スコア: <span id="score">0</span></p>
+<p>1〜10の数字を当ててください</p>
 
-<button onclick="addScore()">クリック</button>
+<input type="number" id="guess">
+<button onclick="checkNumber()">決定</button>
+
+<p id="result"></p>
 
 </div>
 
 <script>
-let score = 0;
 
-function addScore(){
-    score = score + 1;
-    document.getElementById("score").textContent = score;
+let answer = Math.floor(Math.random()*10)+1;
+
+function checkNumber(){
+
+let guess = document.getElementById("guess").value;
+
+if(guess == answer){
+document.getElementById("result").textContent = "正解！";
+}else if(guess < answer){
+document.getElementById("result").textContent = "もっと大きいです";
+}else{
+document.getElementById("result").textContent = "もっと小さいです";
 }
+
+}
+
 </script>
 
 </body>
